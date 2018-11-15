@@ -10,11 +10,11 @@
         android:id="@+id/button"
         android:layout_width="208dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="88dp"
         android:layout_marginStart="88dp"
+        android:layout_marginLeft="88dp"
         android:layout_marginTop="76dp"
         android:onClick="registrarEquipo"
-        android:text="@string/reg_equipo"
+        android:text="@string/registrar_equipo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,11 +22,11 @@
         android:id="@+id/button2"
         android:layout_width="208dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="88dp"
         android:layout_marginStart="88dp"
+        android:layout_marginLeft="88dp"
         android:layout_marginTop="20dp"
         android:onClick="registrarJugador"
-        android:text="@string/reg_jugador"
+        android:text="@string/registrar_jugador"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
@@ -34,11 +34,11 @@
         android:id="@+id/button3"
         android:layout_width="207dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="88dp"
         android:layout_marginStart="88dp"
+        android:layout_marginLeft="88dp"
         android:layout_marginTop="20dp"
         android:onClick="registrarPartido"
-        android:text="@string/reg_partido"
+        android:text="@string/registrar_partido"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button2" />
 
@@ -46,11 +46,11 @@
         android:id="@+id/button4"
         android:layout_width="206dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="88dp"
         android:layout_marginStart="88dp"
+        android:layout_marginLeft="88dp"
         android:layout_marginTop="20dp"
         android:onClick="listarJugadores"
-        android:text="@string/list_jugador"
+        android:text="@string/listar_jugadores"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button3" />
 
@@ -58,11 +58,11 @@
         android:id="@+id/button5"
         android:layout_width="205dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="88dp"
         android:layout_marginStart="88dp"
+        android:layout_marginLeft="88dp"
         android:layout_marginTop="20dp"
         android:onClick="listarPartidos"
-        android:text="@string/list_partido"
+        android:text="@string/listar_partidos"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button4" />
 

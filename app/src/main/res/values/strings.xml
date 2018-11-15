@@ -1,15 +1,17 @@
 <resources>
     <string name="app_name">Evaluacion2</string>
-    <string name="reg_equipo">Registrar Equipo</string>
-    <string name="reg_jugador">Registrar Jugador</string>
-    <string name="reg_partido">Registrar Partido</string>
-    <string name="list_jugador">Listar Jugadores por Equipo</string>
-    <string name="list_partido">Lista de partidos</string>
-    <string name="nombre_equipo">Nombre del equipo</string>
-    <string name="btn_guardar">Registrar</string>
-    <string name="btn_salir">Salir</string>
-    <string name="txt_nombre">Nombre</string>
-    <string name="txt_apellido">Apellido</string>
-    <string name="txt_id">ID Equipo</string>
-    <string name="registrar">REGISTRAR</string>
+    <string name="registrar_equipo">REGISTRAR EQUIPO</string>
+    <string name="registrar_jugador">REGISTRAR JUGADOR</string>
+    <string name="registrar_partido">REGISTRAR PARTIDO</string>
+    <string name="listar_jugadores">LISTAR JUGADORES</string>
+    <string name="listar_partidos">LISTAR PARTIDOS</string>
+    <string name="registrar_nuevo_e">REGISTRAR</string>
+    <string name="salir_registrar_e">SALIR</string>
+    <string name="nombre_equipo">NOMBRE EQUIPO</string>
+    <string name="nombre_jugador">NOMBRE JUGADOR</string>
+    <string name="apellido_jugador">APELLIDO JUGADOR</string>
+    <string name="registrar_nuevo_j">REGISTRAR</string>
+    <string name="salir_registrar_j">SALIR</string>
+    <string name="registrar_nuevo_p">REGISTRAR</string>
+    <string name="salir_registrar_p">SALIR</string>
 </resources>
