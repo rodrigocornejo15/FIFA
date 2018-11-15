@@ -43,4 +43,12 @@ public class Utilidades {
             + "FOREIGN KEY("+CAMPO_EQUIPO_LOC+") REFERENCES "+TABLA_EQUIPOS+"("+CAMPO_ID+")"
             + CAMPO_TIPO + " TEXT );";
 
+    public static final String TABLA_TIPO_PARTIDO = "tipo_partido";
+    public static final String CAMPO_ID_TIPO = "id_tipo";
+    public static final String CAMPO_NOMBRE_TIPO = "nombre";
+
+    public static final String CREAR_TABLA_TIPO_PARTIDO = "CREATE TABLE "
+            + TABLA_TIPO_PARTIDO + "("
+            + CAMPO_ID_TIPO + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
+            + CAMPO_NOMBRE_TIPO + " TEXT)";
 }

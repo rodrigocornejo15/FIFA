@@ -19,6 +19,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
         db.execSQL(Utilidades.CREAR_TABLA_EQUIPOS);
         db.execSQL(Utilidades.CREAR_TABLA_JUGADORES);
         db.execSQL(Utilidades.CREAR_TABLA_PARTIDOS);
+        db.execSQL(Utilidades.CREAR_TABLA_TIPO_PARTIDO);
     }
 
     @Override
@@ -26,5 +27,6 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS "+Utilidades.TABLA_EQUIPOS);
         db.execSQL("DROP TABLE IF EXISTS "+Utilidades.TABLA_JUGADORES);
         db.execSQL("DROP TABLE IF EXISTS "+Utilidades.TABLA_PARTIDOS);
+        db.execSQL("DROP TABLE IF EXISTS "+Utilidades.TABLA_TIPO_PARTIDO);
     }
 }
