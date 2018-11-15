@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Evaluacion2</string>
+    <string name="reg_equipo">Registrar Equipo</string>
+    <string name="reg_jugador">Registrar Jugador</string>
+    <string name="reg_partido">Registrar Partido</string>
+    <string name="list_jugador">Listar Jugadores por Equipo</string>
+    <string name="list_partido">Lista de partidos</string>
+    <string name="nombre_equipo">Nombre del equipo</string>
+    <string name="btn_guardar">Registrar</string>
+    <string name="btn_salir">Salir</string>
+    <string name="txt_nombre">Nombre</string>
+    <string name="txt_apellido">Apellido</string>
+    <string name="txt_id">ID Equipo</string>
+    <string name="registrar">REGISTRAR</string>
+</resources>
