@@ -20,13 +20,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        SQLiteOpenHelper conn = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
-
-    }
-    public void listas(View v){
-        Intent lista = new Intent(this, Listas.class);
-        startActivity(lista);
     }
     //Boton registrar equipo
     public void registrarEquipo(View view)
