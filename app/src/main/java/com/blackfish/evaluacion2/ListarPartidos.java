@@ -74,12 +74,13 @@ public class ListarPartidos extends AppCompatActivity {
             Partidos datos = null;
             partidos = new ArrayList<Partidos>();
             SQLiteDatabase BaseDeDatos = conn.getWritableDatabase();
-            Cursor c = BaseDeDatos.rawQuery("SELECT * FROM "+Utilidades.TABLA_PARTIDOS, null);
+        Cursor c = BaseDeDatos.rawQuery("SELECT * FROM "+Utilidades.TABLA_EQUIPOS+","+Utilidades.TABLA_PARTIDOS
+                +" WHERE "+Utilidades.CAMPO_ID+ "=" +Utilidades.CAMPO_ID_P+"" , null);
+            //Cursor c = BaseDeDatos.rawQuery("SELECT * FROM "+Utilidades.TABLA_PARTIDOS, null);
 
             while (c.moveToNext()) {
                 Equipos equipo = new Equipos();
                 TipoPartido tipo = new TipoPartido();
-
                 datos = new Partidos();
                 datos.setIdPartido(c.getInt(0));
                 equipo.setId_equipo(c.getInt(1));
@@ -100,9 +101,9 @@ public class ListarPartidos extends AppCompatActivity {
 
         for (int i =0; i<partidos.size(); i++){
 
-            listaPartidos.add("Id Partido "+partidos.get(i).getIdPartido()+" Id Equipo Ganador "
-                    +partidos.get(i).getIdEquipoGana().getId_equipo()+" Id Tipo Partido "
-                    +partidos.get(i).getIdTipo().getIdTipoPartido()+" Goles "
+            listaPartidos.add("Id Partido "+partidos.get(i).getIdPartido()+" Equipo Ganador "
+                    +partidos.get(i).getIdEquipoGana().getNombre()+" Id Tipo Partido "
+                    +partidos.get(i).getIdTipo().getTipoPartido()+" Goles "
                     +partidos.get(i).getGoles()+" Fecha "
                     +partidos.get(i).getFecha());
         }

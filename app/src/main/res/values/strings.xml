@@ -16,6 +16,8 @@
     <string name="salir_registrar_e">SALIR</string>
     <string name="cantidad_de_goles">CANTIDAD DE GOLES</string>
     <string name="fecha_encuentro">FECHA ENCUENTRO</string>
+    <string name="btn_buscar">BUSCAR</string>
+    <string name="btn_salir_lista_j">SALIR</string>
     <string-array name="tipo_partidos">
         <item>Seleccione</item>
         <item>Amistosos</item>
