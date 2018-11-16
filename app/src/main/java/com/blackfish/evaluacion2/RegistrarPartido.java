@@ -44,8 +44,8 @@ public class RegistrarPartido extends AppCompatActivity {
         //cargarTablas();
 
         ArrayAdapter<String> adap = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listaEquipos);
-        ArrayAdapter<CharSequence> adapTipo = ArrayAdapter.createFromResource(this, R.array.tipo_partidos, android.R.layout.simple_spinner_item);
-        //ArrayAdapter<String> adapTipo = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listaTipo);
+        //ArrayAdapter<CharSequence> adapTipo = ArrayAdapter.createFromResource(this, R.array.tipo_partidos, android.R.layout.simple_spinner_item);
+        ArrayAdapter<String> adapTipo = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listaTipo);
         adap.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapTipo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sp1.setAdapter(adap);
@@ -60,11 +60,11 @@ public class RegistrarPartido extends AppCompatActivity {
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
 
         Equipos datos = null;
-        //TipoPartido tp = null;
+        TipoPartido tp = null;
         equipos = new ArrayList<Equipos>();
-        //partido = new ArrayList<TipoPartido>();
+        partido = new ArrayList<TipoPartido>();
         Cursor c = BaseDeDatos.rawQuery("SELECT * FROM "+Utilidades.TABLA_EQUIPOS, null);
-        //Cursor t = BaseDeDatos.rawQuery("SELECT * FROM "+Utilidades.TABLA_TIPO_PARTIDO, null);
+        Cursor t = BaseDeDatos.rawQuery("SELECT * FROM "+Utilidades.TABLA_TIPO_PARTIDO, null);
         while (c.moveToNext())
         {
             datos = new Equipos();
@@ -74,20 +74,25 @@ public class RegistrarPartido extends AppCompatActivity {
             equipos.add(datos);
             //partido.add(tp);
         }
+        while (t.moveToNext()){
+            tp = new TipoPartido();
+            tp.setTipoPartido(t.getString(1));
+            partido.add(tp);
+        }
         obtenerLista();
     }
 
     private void obtenerLista() {
         listaEquipos = new ArrayList<>();
-        //listaTipo = new ArrayList<>();
+        listaTipo = new ArrayList<>();
         listaEquipos.add("Seleccione");
-        //listaTipo.add("Seleccione");
+        listaTipo.add("Seleccione");
         for (int i = 0; i < equipos.size(); i++) {
             listaEquipos.add(equipos.get(i).getNombre());
         }
-        /*for (int j = 0; j < partido.size(); j++){
+        for (int j = 0; j < partido.size(); j++){
             listaTipo.add(partido.get(j).getTipoPartido());
-        }*/
+        }
 
     }
 
@@ -125,7 +130,7 @@ public class RegistrarPartido extends AppCompatActivity {
             }
         }*/
 
-    public void cargarTablas(){
+    /*public void cargarTablas(){
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
         ContentValues registro = new ContentValues();
@@ -133,16 +138,12 @@ public class RegistrarPartido extends AppCompatActivity {
         if ( c!=null){
             c.moveToFirst();
             if (c.getInt(0)==0){
-                registro.put(Utilidades.CAMPO_NOMBRE_TIPO, "Amistosos");
-                registro.put(Utilidades.CAMPO_NOMBRE_TIPO, "Clasificatorio");
-                registro.put(Utilidades.CAMPO_NOMBRE_TIPO, "Fase de Grupos");
-                registro.put(Utilidades.CAMPO_NOMBRE_TIPO, "Octavos");
-                registro.put(Utilidades.CAMPO_NOMBRE_TIPO, "Cuartos");
-                registro.put(Utilidades.CAMPO_NOMBRE_TIPO, "Semifinal");
-                registro.put(Utilidades.CAMPO_NOMBRE_TIPO, "3° y 4° Puesto");
-                registro.put(Utilidades.CAMPO_NOMBRE_TIPO, "Final");
+                for(int i=1; i<=3; i++){
+                    registro.put(Utilidades.CAMPO_NOMBRE_TIPO, "Partido"+(i)+"");
+                }
+
             }
         }
         BaseDeDatos.close();
-    }
+    }*/
     }

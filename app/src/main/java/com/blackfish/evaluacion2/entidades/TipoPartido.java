@@ -1,6 +1,11 @@
 package com.blackfish.evaluacion2.entidades;
 
-public class TipoPartido {
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+
+import com.blackfish.evaluacion2.AdminSQLiteOpenHelper;
+
+public class TipoPartido{
 
     Integer idTipoPartido;
     String tipoPartido;

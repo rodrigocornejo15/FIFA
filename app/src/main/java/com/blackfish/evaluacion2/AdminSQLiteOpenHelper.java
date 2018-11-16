@@ -20,6 +20,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
         db.execSQL(Utilidades.CREAR_TABLA_JUGADORES);
         db.execSQL(Utilidades.CREAR_TABLA_PARTIDOS);
         db.execSQL(Utilidades.CREAR_TABLA_TIPO_PARTIDO);
+        db.execSQL(Utilidades.LLENAR_TABLA_TIPO_PARTIDO);
     }
 
     @Override

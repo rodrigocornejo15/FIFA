@@ -39,9 +39,9 @@ public class Utilidades {
             + CAMPO_ID_P + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
             + CAMPO_EQUIPO_VIS + " INTEGER, "
             + CAMPO_EQUIPO_LOC+" INTEGER, "
-            + CAMPO_TIPO + " TEXT )";
-            //+ "FOREIGN KEY("+CAMPO_EQUIPO_LOC+") REFERENCES "+TABLA_EQUIPOS+"("+CAMPO_ID+")"
-            //+ "FOREIGN KEY("+CAMPO_EQUIPO_VIS+") REFERENCES "+TABLA_EQUIPOS+"("+CAMPO_ID+"));";
+            + CAMPO_TIPO + " INTEGER, "
+            + "FOREIGN KEY("+CAMPO_EQUIPO_LOC+") REFERENCES "+TABLA_EQUIPOS+"("+CAMPO_ID+"), "
+            + "FOREIGN KEY("+CAMPO_EQUIPO_VIS+") REFERENCES "+TABLA_EQUIPOS+"("+CAMPO_ID+"));";
 
     public static final String TABLA_TIPO_PARTIDO = "tipo_partido";
     public static final String CAMPO_ID_TIPO = "id_tipo";
@@ -51,6 +51,10 @@ public class Utilidades {
             + TABLA_TIPO_PARTIDO + "("
             + CAMPO_ID_TIPO + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
             + CAMPO_NOMBRE_TIPO + " TEXT)";
+
+    public static final String LLENAR_TABLA_TIPO_PARTIDO = "INSERT INTO "+TABLA_TIPO_PARTIDO
+            + "("+CAMPO_NOMBRE_TIPO+") VALUES"
+            + "('Partido 1'),('Partido 2'),('Partido 3'),('Semifinal 1'), ('Semifinal 2'), ('Final')";
 
 }
 
