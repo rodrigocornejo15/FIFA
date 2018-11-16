@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.blackfish.evaluacion2.entidades.Equipos;
+import com.blackfish.evaluacion2.entidades.TipoPartido;
 import com.blackfish.evaluacion2.utilidades.Utilidades;
 
 import java.util.ArrayList;
@@ -24,6 +25,8 @@ public class RegistrarPartido extends AppCompatActivity {
     Spinner sp1, sp2, sp3;
     ArrayList<String> listaEquipos;
     ArrayList<Equipos> equipos;
+    ArrayList<String> listaTipo;
+    ArrayList<TipoPartido> partido;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,45 +40,54 @@ public class RegistrarPartido extends AppCompatActivity {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
         SQLiteDatabase db = admin.getWritableDatabase();
 
-        cargarEquipos();
+        cargarSpinner();
         //cargarTablas();
 
         ArrayAdapter<String> adap = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listaEquipos);
+        ArrayAdapter<CharSequence> adapTipo = ArrayAdapter.createFromResource(this, R.array.tipo_partidos, android.R.layout.simple_spinner_item);
+        //ArrayAdapter<String> adapTipo = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listaTipo);
         adap.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapTipo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sp1.setAdapter(adap);
         sp2.setAdapter(adap);
+        sp3.setAdapter(adapTipo);
         db.close();
     }
 
 
-    public void cargarEquipos(){
+    public void cargarSpinner(){
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
 
         Equipos datos = null;
-
+        //TipoPartido tp = null;
         equipos = new ArrayList<Equipos>();
-
+        //partido = new ArrayList<TipoPartido>();
         Cursor c = BaseDeDatos.rawQuery("SELECT * FROM "+Utilidades.TABLA_EQUIPOS, null);
-
+        //Cursor t = BaseDeDatos.rawQuery("SELECT * FROM "+Utilidades.TABLA_TIPO_PARTIDO, null);
         while (c.moveToNext())
         {
             datos = new Equipos();
+            //tp = new TipoPartido();
             datos.setNombre(c.getString(1));
+            //tp.setTipoPartido(c.getString(1));
             equipos.add(datos);
+            //partido.add(tp);
         }
         obtenerLista();
     }
 
-    private void obtenerLista()
-    {
+    private void obtenerLista() {
         listaEquipos = new ArrayList<>();
+        //listaTipo = new ArrayList<>();
         listaEquipos.add("Seleccione");
-
-        for(int i=0; i<equipos.size(); i++)
-        {
+        //listaTipo.add("Seleccione");
+        for (int i = 0; i < equipos.size(); i++) {
             listaEquipos.add(equipos.get(i).getNombre());
         }
+        /*for (int j = 0; j < partido.size(); j++){
+            listaTipo.add(partido.get(j).getTipoPartido());
+        }*/
 
     }
 

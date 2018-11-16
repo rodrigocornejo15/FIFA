@@ -14,4 +14,15 @@
     <string name="salir_registrar_p">SALIR</string>
     <string name="registrar_nuevo_e">REGISTRAR</string>
     <string name="salir_registrar_e">SALIR</string>
+    <string-array name="tipo_partidos">
+        <item>Seleccione</item>
+        <item>Amistosos</item>
+        <item>Clasificatorio</item>
+        <item>Fase de Grupos</item>
+        <item>Octavos</item>
+        <item>Cuartos</item>
+        <item>Semifinal</item>
+        <item>3° y 4° Puesto</item>
+        <item>Final</item>
+    </string-array>
 </resources>

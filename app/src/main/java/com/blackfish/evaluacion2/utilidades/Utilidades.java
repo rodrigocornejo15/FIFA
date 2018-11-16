@@ -51,4 +51,6 @@ public class Utilidades {
             + TABLA_TIPO_PARTIDO + "("
             + CAMPO_ID_TIPO + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
             + CAMPO_NOMBRE_TIPO + " TEXT)";
+
 }
+
