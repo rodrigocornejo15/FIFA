@@ -37,11 +37,11 @@ public class Utilidades {
     public static final String CREAR_TABLA_PARTIDOS = "CREATE TABLE "
             + TABLA_PARTIDOS + "("
             + CAMPO_ID_P + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
-            + CAMPO_EQUIPO_VIS + " INTEGER,"
-            + "FOREIGN KEY("+CAMPO_EQUIPO_VIS+") REFERENCES "+TABLA_EQUIPOS+"("+CAMPO_ID+") "
-            + CAMPO_EQUIPO_LOC+" INTEGER,"
-            + "FOREIGN KEY("+CAMPO_EQUIPO_LOC+") REFERENCES "+TABLA_EQUIPOS+"("+CAMPO_ID+")"
-            + CAMPO_TIPO + " TEXT );";
+            + CAMPO_EQUIPO_VIS + " INTEGER, "
+            + CAMPO_EQUIPO_LOC+" INTEGER, "
+            + CAMPO_TIPO + " TEXT )";
+            //+ "FOREIGN KEY("+CAMPO_EQUIPO_LOC+") REFERENCES "+TABLA_EQUIPOS+"("+CAMPO_ID+")"
+            //+ "FOREIGN KEY("+CAMPO_EQUIPO_VIS+") REFERENCES "+TABLA_EQUIPOS+"("+CAMPO_ID+"));";
 
     public static final String TABLA_TIPO_PARTIDO = "tipo_partido";
     public static final String CAMPO_ID_TIPO = "id_tipo";

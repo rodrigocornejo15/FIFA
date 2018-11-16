@@ -1,6 +1,7 @@
 package com.blackfish.evaluacion2;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -37,6 +38,7 @@ public class RegistrarPartido extends AppCompatActivity {
         SQLiteDatabase db = admin.getWritableDatabase();
 
         cargarEquipos();
+        //cargarTablas();
 
         ArrayAdapter<String> adap = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listaEquipos);
         adap.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -84,7 +86,7 @@ public class RegistrarPartido extends AppCompatActivity {
     }
 
         //Metodo boton registrar partido
-      /*  public void registrarPartido(View view)
+       /*public void registrarPartido(View view)
         {
             SQLiteOpenHelper conn = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
             SQLiteDatabase BaseDeDatos = conn.getWritableDatabase();
@@ -110,4 +112,25 @@ public class RegistrarPartido extends AppCompatActivity {
                 Toast.makeText(this, "Debes ingresar nombre y tipo de equipo", Toast.LENGTH_LONG).show();
             }
         }*/
+
+    public void cargarTablas(){
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
+        SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
+        ContentValues registro = new ContentValues();
+        Cursor c = BaseDeDatos.rawQuery("SELECT COUNT (*) FROM "+Utilidades.TABLA_TIPO_PARTIDO, null);
+        if ( c!=null){
+            c.moveToFirst();
+            if (c.getInt(0)==0){
+                registro.put(Utilidades.CAMPO_NOMBRE_TIPO, "Amistosos");
+                registro.put(Utilidades.CAMPO_NOMBRE_TIPO, "Clasificatorio");
+                registro.put(Utilidades.CAMPO_NOMBRE_TIPO, "Fase de Grupos");
+                registro.put(Utilidades.CAMPO_NOMBRE_TIPO, "Octavos");
+                registro.put(Utilidades.CAMPO_NOMBRE_TIPO, "Cuartos");
+                registro.put(Utilidades.CAMPO_NOMBRE_TIPO, "Semifinal");
+                registro.put(Utilidades.CAMPO_NOMBRE_TIPO, "3° y 4° Puesto");
+                registro.put(Utilidades.CAMPO_NOMBRE_TIPO, "Final");
+            }
+        }
+        BaseDeDatos.close();
+    }
     }

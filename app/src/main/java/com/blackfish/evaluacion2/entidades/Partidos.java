@@ -1,6 +1,12 @@
 package com.blackfish.evaluacion2.entidades;
 
 
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import com.blackfish.evaluacion2.AdminSQLiteOpenHelper;
+import com.blackfish.evaluacion2.utilidades.Utilidades;
+
 public class Partidos {
 
     private Integer idPartido;

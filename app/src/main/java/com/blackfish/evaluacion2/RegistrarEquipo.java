@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.strictmode.SqliteObjectLeakedViolation;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,13 +26,12 @@ public class RegistrarEquipo extends AppCompatActivity {
     }
 
     //Metodo boton registrar equipo
-    public void registrarEquipo(View view)
+    public void registrarEquipo(View v)
     {
         SQLiteOpenHelper conn = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
         SQLiteDatabase db = conn.getWritableDatabase();
 
-        if(!et2.getText().toString().isEmpty())
-        {
+        if(!et2.getText().toString().isEmpty()){
             ContentValues registro = new ContentValues();
             registro.put(Utilidades.CAMPO_NOMBRE, et2.getText().toString());
 
