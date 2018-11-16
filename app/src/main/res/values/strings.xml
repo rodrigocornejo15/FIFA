@@ -5,8 +5,6 @@
     <string name="registrar_partido">REGISTRAR PARTIDO</string>
     <string name="listar_jugadores">LISTAR JUGADORES</string>
     <string name="listar_partidos">LISTAR PARTIDOS</string>
-    <string name="registrar_nuevo_e">REGISTRAR</string>
-    <string name="salir_registrar_e">SALIR</string>
     <string name="nombre_equipo">NOMBRE EQUIPO</string>
     <string name="nombre_jugador">NOMBRE JUGADOR</string>
     <string name="apellido_jugador">APELLIDO JUGADOR</string>
@@ -14,4 +12,6 @@
     <string name="salir_registrar_j">SALIR</string>
     <string name="registrar_nuevo_p">REGISTRAR</string>
     <string name="salir_registrar_p">SALIR</string>
+    <string name="registrar_nuevo_e">REGISTRAR</string>
+    <string name="salir_registrar_e">SALIR</string>
 </resources>
