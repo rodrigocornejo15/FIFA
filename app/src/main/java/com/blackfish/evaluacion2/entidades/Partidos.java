@@ -10,18 +10,20 @@ import com.blackfish.evaluacion2.utilidades.Utilidades;
 public class Partidos {
 
     private Integer idPartido;
-    private Equipos idEquipoLocal;
-    private Equipos idEquipoVisita;
-    private String tipo;
+    private Equipos idEquipoGana;
+    private TipoPartido idTipo;
+    private Integer goles;
+    private String fecha;
 
     public Partidos() {
     }
 
-    public Partidos(Integer idPartido, Equipos idEquipoLocal, Equipos idEquipoVisita, String tipo) {
+    public Partidos(Integer idPartido, Equipos idEquipoGana, TipoPartido idTipo, Integer goles, String fecha) {
         this.idPartido = idPartido;
-        this.idEquipoLocal = idEquipoLocal;
-        this.idEquipoVisita = idEquipoVisita;
-        this.tipo = tipo;
+        this.idEquipoGana = idEquipoGana;
+        this.idTipo = idTipo;
+        this.goles = goles;
+        this.fecha = fecha;
     }
 
     public Integer getIdPartido() {
@@ -32,28 +34,36 @@ public class Partidos {
         this.idPartido = idPartido;
     }
 
-    public Equipos getIdEquipoLocal() {
-        return idEquipoLocal;
+    public Equipos getIdEquipoGana() {
+        return idEquipoGana;
     }
 
-    public void setIdEquipoLocal(Equipos idEquipoLocal) {
-        this.idEquipoLocal = idEquipoLocal;
+    public void setIdEquipoGana(Equipos idEquipoGana) {
+        this.idEquipoGana = idEquipoGana;
     }
 
-    public Equipos getIdEquipoVisita() {
-        return idEquipoVisita;
+    public TipoPartido getIdTipo() {
+        return idTipo;
     }
 
-    public void setIdEquipoVisita(Equipos idEquipoVisita) {
-        this.idEquipoVisita = idEquipoVisita;
+    public void setIdTipo(TipoPartido idTipo) {
+        this.idTipo = idTipo;
     }
 
-    public String getTipo() {
-        return tipo;
+    public Integer getGoles() {
+        return goles;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setGoles(Integer goles) {
+        this.goles = goles;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 }
 

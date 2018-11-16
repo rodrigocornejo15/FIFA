@@ -22,7 +22,8 @@ import java.util.ArrayList;
 
 public class RegistrarPartido extends AppCompatActivity {
 
-    Spinner sp1, sp2, sp3;
+    Spinner sp1, sp2;
+    EditText et1, et2;
     ArrayList<String> listaEquipos;
     ArrayList<Equipos> equipos;
     ArrayList<String> listaTipo;
@@ -33,9 +34,10 @@ public class RegistrarPartido extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_partido);
 
-        sp1 = (Spinner)findViewById(R.id.spEquipoLoc);
-        sp2 = (Spinner)findViewById(R.id.spEquipoVis);
-        sp3 = (Spinner)findViewById(R.id.spTipo);
+        sp1 = (Spinner)findViewById(R.id.spEquipoGana);
+        sp2 = (Spinner)findViewById(R.id.spTipo);
+        et1 = (EditText)findViewById(R.id.etCantidadGoles);
+        et2 = (EditText)findViewById(R.id.etFecha);
 
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
         SQLiteDatabase db = admin.getWritableDatabase();
@@ -49,8 +51,7 @@ public class RegistrarPartido extends AppCompatActivity {
         adap.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapTipo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sp1.setAdapter(adap);
-        sp2.setAdapter(adap);
-        sp3.setAdapter(adapTipo);
+        sp2.setAdapter(adapTipo);
         db.close();
     }
 
@@ -85,8 +86,8 @@ public class RegistrarPartido extends AppCompatActivity {
     private void obtenerLista() {
         listaEquipos = new ArrayList<>();
         listaTipo = new ArrayList<>();
-        listaEquipos.add("Seleccione");
-        listaTipo.add("Seleccione");
+        listaEquipos.add("Equipo Ganador");
+        listaTipo.add("Tipo Partido");
         for (int i = 0; i < equipos.size(); i++) {
             listaEquipos.add(equipos.get(i).getNombre());
         }
@@ -103,21 +104,23 @@ public class RegistrarPartido extends AppCompatActivity {
     }
 
         //Metodo boton registrar partido
-       /*public void registrarPartido(View view)
-        {
+
+    public void registrarPartido(View view){
             SQLiteOpenHelper conn = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
             SQLiteDatabase BaseDeDatos = conn.getWritableDatabase();
 
-
-
-            if(!et1.getText().toString().isEmpty() && !et2.getText().toString().isEmpty())
+            if(sp1.getSelectedItemId()!=0 && sp2.getSelectedItemId()!=0 && !et1.getText().toString().isEmpty() && !et2.getText().toString().isEmpty())
             {
                 ContentValues registro = new ContentValues();
-                registro.put(Utilidades.CAMPO_NOMBRE_P, et1.getText().toString());
-                registro.put(Utilidades.CAMPO_TIPO_P, et2.getText().toString());
+                registro.put(Utilidades.CAMPO_EQUIPO_GANA, sp1.getSelectedItemId());
+                registro.put(Utilidades.CAMPO_TIPO, sp2.getSelectedItemId());
+                registro.put(Utilidades.CAMPO_GOLES, et1.getText().toString());
+                registro.put(Utilidades.CAMPO_FECHA, et2.getText().toString());
 
                 Long resultadopartido = BaseDeDatos.insert(Utilidades.TABLA_PARTIDOS, Utilidades.CAMPO_ID_P, registro);
 
+                sp1.setSelection(0);
+                sp2.setSelection(0);
                 et1.setText("");
                 et2.setText("");
                 Toast.makeText(this, "Registro "+ resultadopartido +" exitoso", Toast.LENGTH_LONG).show();
@@ -128,7 +131,7 @@ public class RegistrarPartido extends AppCompatActivity {
             {
                 Toast.makeText(this, "Debes ingresar nombre y tipo de equipo", Toast.LENGTH_LONG).show();
             }
-        }*/
+        }
 
     /*public void cargarTablas(){
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);

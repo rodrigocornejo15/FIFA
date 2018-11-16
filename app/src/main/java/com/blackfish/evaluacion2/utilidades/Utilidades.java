@@ -27,22 +27,6 @@ public class Utilidades {
             + CAMPO_ID_EQUIPO_J + " INTEGER,"
             + " FOREIGN KEY("+CAMPO_ID_EQUIPO_J+") REFERENCES "+TABLA_EQUIPOS+"("+CAMPO_ID+"));";
 
-    //Constantes campos tabla Partidos
-    public static final String TABLA_PARTIDOS = "partidos";
-    public static final String CAMPO_ID_P = "id_partido";
-    public static final String CAMPO_EQUIPO_VIS = "idEquipoLocal";
-    public static final String CAMPO_EQUIPO_LOC = "idEquipoVisita";
-    public static final String CAMPO_TIPO = "tipo_P";
-
-    public static final String CREAR_TABLA_PARTIDOS = "CREATE TABLE "
-            + TABLA_PARTIDOS + "("
-            + CAMPO_ID_P + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
-            + CAMPO_EQUIPO_VIS + " INTEGER, "
-            + CAMPO_EQUIPO_LOC+" INTEGER, "
-            + CAMPO_TIPO + " INTEGER, "
-            + "FOREIGN KEY("+CAMPO_EQUIPO_LOC+") REFERENCES "+TABLA_EQUIPOS+"("+CAMPO_ID+"), "
-            + "FOREIGN KEY("+CAMPO_EQUIPO_VIS+") REFERENCES "+TABLA_EQUIPOS+"("+CAMPO_ID+"));";
-
     public static final String TABLA_TIPO_PARTIDO = "tipo_partido";
     public static final String CAMPO_ID_TIPO = "id_tipo";
     public static final String CAMPO_NOMBRE_TIPO = "nombre";
@@ -55,6 +39,26 @@ public class Utilidades {
     public static final String LLENAR_TABLA_TIPO_PARTIDO = "INSERT INTO "+TABLA_TIPO_PARTIDO
             + "("+CAMPO_NOMBRE_TIPO+") VALUES"
             + "('Partido 1'),('Partido 2'),('Partido 3'),('Semifinal 1'), ('Semifinal 2'), ('Final')";
+
+    //Constantes campos tabla Partidos
+    public static final String TABLA_PARTIDOS = "partidos";
+    public static final String CAMPO_ID_P = "id_partido";
+    public static final String CAMPO_EQUIPO_GANA = "idEquipoGana";
+    public static final String CAMPO_TIPO = "tipo";
+    public static final String CAMPO_GOLES ="goles";
+    public static final String CAMPO_FECHA = "fecha";
+
+    public static final String CREAR_TABLA_PARTIDOS = "CREATE TABLE "
+            + TABLA_PARTIDOS + "("
+            + CAMPO_ID_P + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
+            + CAMPO_EQUIPO_GANA + " INTEGER, "
+            + CAMPO_TIPO + " INTEGER, "
+            + CAMPO_GOLES + " INTEGER, "
+            + CAMPO_FECHA + " TEXT , "
+            + "FOREIGN KEY("+CAMPO_EQUIPO_GANA+") REFERENCES "+TABLA_EQUIPOS+"("+CAMPO_ID+"), "
+            + "FOREIGN KEY("+CAMPO_TIPO+") REFERENCES "+TABLA_TIPO_PARTIDO+"("+CAMPO_ID_TIPO+"));";
+
+
 
 }
 
